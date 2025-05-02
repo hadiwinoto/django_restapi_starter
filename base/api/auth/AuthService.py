@@ -13,9 +13,7 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
     @classmethod
     def get_token(cls, user):
         token = super().get_token(user)
-
         token['username'] = user.username
-
         return token
 
 class MyTokenObtainPairView(TokenObtainPairView):
@@ -29,3 +27,4 @@ def get_profile(request):
     serializer = ProfileSerializer(profile, many=False)
     return Response(serializer.data)
 
+3
